@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+html(lang="en")
+head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Race - Room #{roomCode}
+    link(rel="stylesheet", href="/css/style.css")
+
+body
+    .room-info
+        .room-code Room Code: #{roomCode}
+        if isHost
+            .share-info Share this code with your friend!
+        .back-btn
+            a(href="/") ← Back to Lobby
+    
+    #game
+        #score
+            span#player1_score 0 
+            | :
+            span#player2_score  0
+        #control-board.circle(data-content="red")
+            #controller.circle
+
+    .car#car1
+        img#car1_img(src="/imgs/car1.png", alt="")
+    .car#car2
+        img#car2_img(src="/imgs/car2.png", alt="")
+
+    button#start_btn Ready
+    span#timmer 3
+
+    #tyres
+
+    script(src="https://cdn.socket.io/4.6.0/socket.io.min.js" integrity="sha384-c79GN5VsunZvi+Q/WObgk2in0CbZsHnjEqvFxC5DxHn9lTfNce2WW6h2pH6u/kF+" crossorigin="anonymous")
+    script.
+        let main_car = car#{player};
+        let roomCode = "#{roomCode}";
+        let isHost = #{isHost};
+    script(src="/js/game.js")

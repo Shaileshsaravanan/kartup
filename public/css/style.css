@@ -1,0 +1,198 @@
+
+* {
+    margin    : 0;
+    padding   : 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --red  : #dd8e6d;
+    --black: #000;
+    --blue : #417ead;
+    --grass: #d8d06b;
+}
+
+body {
+    height          : 95vh;
+    width           : 100vw;
+    background-color: var(--grass);
+    position        : relative;
+    overflow: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+}
+
+.room-info {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 14px;
+}
+
+.room-code {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.share-info {
+    font-size: 12px;
+    opacity: 0.8;
+    margin-bottom: 10px;
+}
+
+.back-btn a {
+    color: white;
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.back-btn a:hover {
+    opacity: 1;
+}
+
+
+body::after {
+    content            : '';
+    height             : 100%;
+    width              : 100%;
+    background-size    : contain;
+    position           : absolute;
+    background-image   : url(../imgs/ground.png);
+    background-repeat  : no-repeat;
+    background-position: center;
+}
+
+#score {
+    color      : white;
+    font-size  : 23px;
+    font-weight: 900;
+}
+
+#player1_score {
+    color: var(--blue);
+}
+.player1{
+    background-color: var(--blue);
+}
+.player2{
+    background-color: var(--red);
+}
+#player2_score {
+    color: var(--red);
+}
+
+#control-board {
+    --dimension     : 74px;
+    height          : var(--dimension);
+    width           : var(--dimension);
+    border          : 10px solid var(--black);
+    display         : grid;
+    place-items     : center;
+}
+
+#controller {
+    position        : relative;
+    left: 0px;
+    --dimension     : 27px;
+    height          : var(--dimension);
+    width           : var(--dimension);
+    background-color: var(--black);
+}
+
+.circle {
+    border-radius: 50%;
+}
+
+
+
+#game {
+    position       : absolute;
+    height         : 100%;
+    width          : 100%;
+    display        : flex;
+    flex-direction : column;
+    align-items    : center;
+    justify-content: space-between;
+    padding-bottom : 13px;
+}
+
+#game>* {
+    margin: 22px 0px;
+}
+
+.car {
+    height           : 37px;
+    width            : 25px;
+    z-index          : 10;
+    position         : absolute;
+    top: 50%; 
+    z-index: 1;
+}
+.car img {
+    width: 100%;
+}
+
+
+#tyres {
+    position: absolute;
+    height: 34%;
+    width: 29px;
+    background-color: transparent;
+
+    left: 50%;
+    top: 50%;
+    transform: translate(-49%,-64.5%);
+    border-radius: 20px;
+}
+
+#start_btn{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 2;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 20px;
+    color: white;
+    box-shadow: none;
+    outline: none;
+    display: none;
+}
+#timmer{
+    position: absolute;
+    font-size: 30px;
+    font-weight: 700;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 4;
+    opacity: 0;
+}
+.timmer {
+    animation: timmer 1s ease 0s infinite forwards;
+}
+
+@keyframes timmer {
+    0%{
+        opacity: 0;
+        font-size: 30px;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        font-size: 90px;
+        opacity: 0;
+    }
+}
